@@ -1,0 +1,6 @@
+client/node_modules
+Include
+Lib
+Scripts
+share
+Lib/site-packages/__pycache__/autopep8.cpython-311.pyc
