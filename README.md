@@ -12,7 +12,7 @@ This model is similar to the [heterogenous ensemble with simple CNN model](https
 
 ## Testing Set Results
 
-Both models are trained for 5 epochs, using the Adam optimizer, the sparse categorical cross-entropy as the loss function, and accuracy as the evaluation metric. The simple CNN model has a test accuracy of 0.9866. The ensemble CNN model has a test accuracy of 0.9885.
+Both models are trained for 5 epochs, using the Adam optimizer, the sparse categorical cross-entropy as the loss function, and accuracy as the evaluation metric. The simple CNN model has a test accuracy of `0.9866`. The ensemble CNN model has a test accuracy of `0.9885`.
 
 ## Demo
 
@@ -20,7 +20,10 @@ Both models are trained for 5 epochs, using the Adam optimizer, the sparse categ
 
 ## Remarks
 
-From testing, it has been clear to me that the ensemble model far outperforms the simple CNN. The latter has some consistent misclassifications. A clear example is with the digit `6`.
+From testing, it has been clear to me that the ensemble model far outperforms the simple CNN. The latter has some consistent misclassifications. A clear example is with the digit '6'. When written normally, the simple CNN is more likely to classify a '6' as a '5'. I've identified this to be a problem with the top portion of '6'. If we give the '6' a rounded top, it is generally misclassified as '5'. Whereas if it is more straightened (like the letter 'b'), it is correctly classified. This problem is also evident in the ensemble model, though to a far lesser extent. This problem is illustrated in the GIF below.
+
+![problem6](https://user-images.githubusercontent.com/96806035/211514309-6ca6172a-92f5-45d0-8945-690100c9c476.gif)
+
 
 
 
