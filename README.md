@@ -14,3 +14,8 @@ This model is similar to the [heterogenous ensemble with simple CNN model](https
 
 Both models are trained for 5 epochs, using the Adam optimizer, the sparse categorical cross-entropy as the loss function, and accuracy as the evaluation metric. The simple CNN model has a test accuracy of 0.9866. The ensemble CNN model has a test accuracy of 0.9885.
 
+## Demo
+
+![demo](https://user-images.githubusercontent.com/96806035/211511206-d1c25565-b45a-44d6-bb1b-c56615767087.gif)
+
+## Remarks
