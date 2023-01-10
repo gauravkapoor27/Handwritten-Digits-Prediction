@@ -20,7 +20,7 @@ const DrawingCanvas = () => {
     ctx.current = canvas.getContext("2d");
 
     // Set up the canvas for drawing
-    ctx.current.lineWidth = 35;
+    ctx.current.lineWidth = 20;
     ctx.current.lineCap = "round";
     ctx.current.strokeStyle = "rgb(100, 0, 0)";
 
@@ -51,7 +51,40 @@ const DrawingCanvas = () => {
     canvas.addEventListener("mouseup", () => {
       isDrawing = false;
 
-      const imageData = canvas.toDataURL();
+      const imageData = ctx.current.getImageData(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+      let minX = canvas.width;
+      let minY = canvas.height;
+      let maxX = 0;
+      let maxY = 0;
+
+      // Find the minimum and maximum x and y coordinates of the drawn pixels
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        if (imageData.data[i + 3] > 0) {
+          const x = (i / 4) % canvas.width;
+          const y = Math.floor(i / 4 / canvas.width);
+          minX = Math.min(minX, x);
+          minY = Math.min(minY, y);
+          maxX = Math.max(maxX, x);
+          maxY = Math.max(maxY, y);
+        }
+      }
+
+      // Create a new canvas with the dimensions of the drawn area
+      const drawnCanvas = document.createElement("canvas");
+      drawnCanvas.width = maxX - minX + 101;
+      drawnCanvas.height = maxY - minY + 101;
+      const drawnCtx = drawnCanvas.getContext("2d");
+
+      // Draw the pixel data onto the new canvas, starting at the top-left corner of the drawn area
+      drawnCtx.putImageData(imageData, -minX + 50, -minY + 50);
+
+      const drawnImageData = drawnCanvas.toDataURL();
 
       fetch("http://127.0.0.1:5555/process-image", {
         method: "POST",
@@ -59,7 +92,7 @@ const DrawingCanvas = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          image: imageData,
+          image: drawnImageData,
         }),
       })
         .then((response) => response.json())
