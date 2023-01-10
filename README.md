@@ -19,3 +19,9 @@ Both models are trained for 5 epochs, using the Adam optimizer, the sparse categ
 ![demo](https://user-images.githubusercontent.com/96806035/211511206-d1c25565-b45a-44d6-bb1b-c56615767087.gif)
 
 ## Remarks
+
+From testing, it has been clear to me that the ensemble model far outperforms the simple CNN. The latter has some consistent misclassifications. A clear example is with the digit `6`.
+
+
+
+
