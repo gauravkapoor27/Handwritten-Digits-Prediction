@@ -27,7 +27,7 @@ ensemble.compile(optimizer='adam',
 
 ensemble.fit(x_train, y_train, epochs=5)
 
-_, test_acc = ensemble.evaluate(x_test, y_test)
+test_acc = ensemble.evaluate(x_test, y_test)
 print('Test accuracy:', test_acc)
 
 # ensemble.save('mnist_ensemble.h5')
