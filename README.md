@@ -28,6 +28,10 @@ Another common misclassification occurs with the digit '7'. When written normall
 
 ![problem7](https://user-images.githubusercontent.com/96806035/211517485-31654adc-b4e8-4b92-b608-ad7dfb648189.gif)
 
+Finally, another misclassification is relating to the digit '9'. When the vertical line in '9' is a certain amount larger than the size of the loop in its upper portion, the models are likely to misclassify it as a '7'. This one is easily explained and excusable to a certain degree. As the length of the verticle line increases, the image is being squished vertically. This decreases the height of the loop in the '9', eventually appearing as just a horizontal line, like the one in '7'. See the GIF below to understand what I mean.
+
+![problem9](https://user-images.githubusercontent.com/96806035/211520543-22da3f6b-edbf-487d-b6f1-953403ea9a1b.gif)
+
 
 
 
