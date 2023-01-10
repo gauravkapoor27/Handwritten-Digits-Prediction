@@ -24,7 +24,7 @@ From testing, it has been clear to me that the ensemble model far outperforms th
 
 ![problem6](https://user-images.githubusercontent.com/96806035/211514309-6ca6172a-92f5-45d0-8945-690100c9c476.gif)
 
-Another common misclassification occurs with the digit '7'. When written normally (with an inner acute angle), both models correctly classify it as '7'. Howver, when it is written as more of a right-angle, the simple CNN model is highly likely to classify it as a '2' instead. The ensemble model also sometimes misclassifies this, but to a much lesser extent. See the GIF below.
+Another common misclassification occurs with the digit '7'. When written normally (with an inner acute angle), both models correctly classify it as '7'. However, when it is written as more of a right-angle, the simple CNN model is highly likely to classify it as a '2' instead. The ensemble model also sometimes misclassifies this, but to a much lesser extent. See the GIF below.
 
 ![problem7](https://user-images.githubusercontent.com/96806035/211517485-31654adc-b4e8-4b92-b608-ad7dfb648189.gif)
 
