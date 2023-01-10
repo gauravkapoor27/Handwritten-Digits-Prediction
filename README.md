@@ -1,6 +1,6 @@
 # Handwritten-Digits-Prediction
 
-This project is a web application built using the React JavaScript framework for the frontend and the Python Flask framework for the backend. The application features a canvas on the web page where users can draw digits, which are then passed to the backend via a JavaScript post request. The backend uses the information from the canvas to predict the drawn digits using two machine learning models that have been trained on the MNIST dataset. The goal of the project is to allow users to draw digits on the canvas and have the models accurately predict which digit was drawn.
+This project is a web application built using the React JavaScript framework for the frontend and the Python Flask framework for the backend. The application features a canvas on the web page where users can draw digits, which are then passed to the backend via a JavaScript post request. The backend uses the information from the canvas to predict the drawn digits using two machine learning models that have been trained on the MNIST dataset. The canvas is designed in a way to allow users to draw anywhere on the canvas and redeem the same output image. This avoid the problem of having to draw in the center of the canvas and at the right size. The goal of the project is to allow users to draw digits on the canvas and have the models accurately predict which digit was drawn.
 
 ## Simple CNN model
 
@@ -23,6 +23,10 @@ Both models are trained for 5 epochs, using the Adam optimizer, the sparse categ
 From testing, it has been clear to me that the ensemble model far outperforms the simple CNN. The latter has some consistent misclassifications. A clear example is with the digit '6'. When written normally, the simple CNN is more likely to classify a '6' as a '5'. I've identified this to be a problem with the top portion of '6'. If we give the '6' a rounded top, it is generally misclassified as '5'. Whereas if it is more straightened (like the letter 'b'), it is correctly classified. This problem is also evident in the ensemble model, though to a far lesser extent. This problem is illustrated in the GIF below.
 
 ![problem6](https://user-images.githubusercontent.com/96806035/211514309-6ca6172a-92f5-45d0-8945-690100c9c476.gif)
+
+Another common misclassification occurs with the digit '7'. When written normally (with an inner acute angle), both models correctly classify it as '7'. Howver, when it is written as more of a right-angle, the simple CNN model is highly likely to classify it as a '2' instead. The ensemble model also sometimes misclassifies this, but to a much lesser extent. See the GIF below.
+
+![problem7](https://user-images.githubusercontent.com/96806035/211517485-31654adc-b4e8-4b92-b608-ad7dfb648189.gif)
 
 
 
